@@ -2,7 +2,7 @@
 import sys
 import re
 from multiprocessing import Process
-from pygraphviz import AGraph
+#from pygraphviz import AGraph
 from tests.common import parent_id, parent_name, child_id, child_parent_id, relation, child, parent
 from eralchemy.main import _intermediary_to_dot
 from eralchemy.cst import GRAPH_BEGINNING
@@ -24,6 +24,8 @@ def assert_is_dot_format(dot):
     # wasn't good
     def run_graph(dot):
         """ Runs graphviz to see if the syntax is good. """
+        from pygraphviz import AGraph
+
         graph = AGraph()
         graph = graph.from_string(dot)
         extension = 'png'

@@ -3,7 +3,7 @@ import argparse
 import sys
 import copy
 
-from pygraphviz.agraph import AGraph
+#from pygraphviz.agraph import AGraph
 from sqlalchemy.engine.url import make_url
 from sqlalchemy.exc import ArgumentError
 
@@ -69,6 +69,7 @@ def intermediary_to_dot(tables, relationships, output):
 def intermediary_to_schema(tables, relationships, output):
     """ Transforms and save the intermediary representation to the file chosen. """
     dot_file = _intermediary_to_dot(tables, relationships)
+    from pygraphviz.agraph import AGraph
     graph = AGraph()
     graph = graph.from_string(dot_file)
     extension = output.split('.')[-1]
